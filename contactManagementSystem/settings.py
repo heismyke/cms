@@ -58,7 +58,7 @@ ROOT_URLCONF = "contactManagementSystem.urls"
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
-'https://contact-management-system-alpha.vercel.app',
+    'https://contact-management-system-alpha.vercel.app',
 ]
 CORS_ORIGIN_ALLOW_ALL = True
 
