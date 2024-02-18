@@ -3,8 +3,10 @@ from cms.models import cms
 from cms.api.serializers import CmsSerializer
 from rest_framework.response import Response
 from rest_framework import status
-
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
 class contacts(APIView):
+    @method_decorator(csrf_exempt)
     def get(self, request):
         queryset = cms.objects.all()
         serializer = CmsSerializer(queryset, many=True)
@@ -19,6 +21,7 @@ class contacts(APIView):
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class contactDetails(APIView):
+    @method_decorator(csrf_exempt)
     def get(self, request, pk):
         try:
             queryset = cms.objects.get(pk=pk)
